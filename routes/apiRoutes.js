@@ -4,7 +4,6 @@ const { v4 } = require('uuid')
 
 // GET "/api/notes" responds with all notes from the database
 router.get('/notes', (req, res) => {
-  //todo:     
   fs.readFile('./db/db.json', 'utf-8', (err, data) => {
     err && res.status(500)
     res.json(JSON.parse(data))
@@ -13,7 +12,6 @@ router.get('/notes', (req, res) => {
 
 // POST "/api/notes" adds a note to the database
 router.post('/notes', (req, res) => {
-  //todo: 
   const newNote = { ...req.body, id: v4() }   
   fs.readFile('./db/db.json', 'utf-8', (err, data) => {
     err && res.status(500)
@@ -28,7 +26,8 @@ router.post('/notes', (req, res) => {
 
 // DELETE "/api/notes" deletes the note with an id equal to req.params.id
 router.delete('/notes/:id', (req, res) => {
-  
+// Try to get the delete function to work!! 
+ 
   // const id = number(request,param.id)
   // notes = notes.filter(note => note.id !== id)
   // response.status(204).end() 
